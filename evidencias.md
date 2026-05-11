@@ -90,15 +90,60 @@ Para optimizar las consultas y organizar la información según los campos espec
       <img width="518" height="657" alt="image" src="https://github.com/user-attachments/assets/12130b04-2556-4a60-a20e-5f3a44ebd86d" />
 
 #### 3. Verificación de Documentos Cargados
-Una vez ejecutado el script de carga masiva, se verificó en el panel de control de CouchDB (Fauxton) que los documentos se encuentran correctamente indexados y accesibles a través de las vistas creadas.
 
-* **Evidencia:** *(Aquí debes insertar la captura `image_89a876.png` que muestra el listado de documentos ya cargados en la base de datos)*
+Tras ejecutar el script de carga masiva, se verificó en el panel de control de CouchDB que los datos fueron inyectados exitosamente.
+
+* **Evidencia:**
+
+<img width="1835" height="677" alt="image" src="https://github.com/user-attachments/assets/7e269cd6-1ea2-4560-a677-a1b6b18cb681" />
+
+### Actividad 3: Ejecución del Frontend y Consumo de Vistas
+
+En esta actividad se puso en marcha la interfaz de usuario para visualizar y consultar los datos inyectados en CouchDB, ejecutando las vistas configuradas previamente.
+
+#### 1. Requisitos del Entorno
+Para asegurar la compatibilidad de las librerías y el correcto funcionamiento de los hooks del framework, se estableció el uso de **Node.js v22**.
+
+#### 2. Despliegue de la Aplicación
+Se accedió al directorio del proyecto y se gestionaron las dependencias mediante los siguientes comandos en la terminal:
+
+```bash
+# Acceso a la carpeta del proyecto
+cd frontend
+
+# Instalación de dependencias
+npm install
+
+# Ejecución del servidor de desarrollo
+npm run dev
+
+```
+
+**Evidencia:**
+
+<img width="898" height="491" alt="image" src="https://github.com/user-attachments/assets/06c2a13e-f0d9-4234-be28-cac0e2525b83" />
 
 
+> **Ojo:** Agregar titulos y pie de página, además usar los colore de la universidad.
 
+#### 4. Personalización y Estética Institucional (UTPL)
+Se intervino el archivo `index.html` para cumplir con los requerimientos de identidad visual de la universidad. Las modificaciones incluyen:
 
+* **Header Institucional**: Se implementó un encabezado con el color azul reglamentario (`#003366`) y una franja inferior dorada (`#ffcc00`), incluyendo el título del proyecto y el nombre de la carrera.
+* **Pie de Página (Footer)**: Se añadió una sección de créditos que identifica a los autores del taller y el año de realización, manteniendo la coherencia cromática.
+* **Estilización de Componentes**: Los elementos de interacción, como el selector de vistas (`<select>`) y el campo de filtro (`<input>`), fueron estilizados con bordes en azul institucional para integrarse al diseño general.
 
+> **Resultado:** La interfaz ahora presenta una estructura clara con encabezado, cuerpo de datos y pie de página, facilitando la navegación y cumpliendo con los estándares de presentación de la UTPL.
 
+* **Evidencia del Código:**
+```html
+<header style="background-color: #003366; color: white; padding: 20px; text-align: center; border-bottom: 5px solid #ffcc00;">
+  <h1 style="margin: 0;">Integracion de Datos - Mundial 2026</h1>
+  <p>Universidad Técnica Particular de Loja - Computación</p>
+</header>
+```
+
+<img width="1918" height="856" alt="image" src="https://github.com/user-attachments/assets/a9ca1808-03b1-4363-905c-ae52d2fbdc26" />
 
 
 
