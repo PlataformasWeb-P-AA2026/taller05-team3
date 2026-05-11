@@ -1,19 +1,22 @@
 ### Actividades Realizadas
 
-Se creó la carpeta **`formato-json`** para colocar el script de Python que se usará para unificar los datos de los diferentes archivos proporcionados de la carpeta `data`:
+Se creó la carpeta **`formato-json`** para alojar los scripts de automatización encargados de la unificación y carga de datos. Se trabajó con los archivos proporcionados en la carpeta `data`:
 
-*   **Fuente 1: `fuente_html_europa.html`**
-    *   Columnas encontradas: `nombre`, `seleccion`, `posicion`, `edad` y `club_actual`.
-*   **Fuente 2: `fuente_csv_sudamerica.csv`**
-    *   Columnas encontradas: `nombre`, `seleccion`, `posicion`, `edad` y `partidos`.
-*   **Fuente 3: `fuente_pdf_norteamerica_asia.pdf`**
-    *   Columnas encontradas: `Nombre`, `Seleccion`, `Posicion`, `Edad` y `Goles`.
+*   **Fuente 1: `fuente_html_europa.html`** (Columnas: `nombre`, `seleccion`, `posicion`, `edad`, `club_actual`).
+*   **Fuente 2: `fuente_csv_sudamerica.csv`** (Columnas: `nombre`, `seleccion`, `posicion`, `edad`, `partidos`).
+*   **Fuente 3: `fuente_pdf_norteamerica_asia.pdf`** (Columnas: `Nombre`, `Seleccion`, `Posicion`, `Edad`, `Goles`).
 
-Para este proceso se utilizaron las siguientes librerías de Python:
+#### Procesamiento y Unificación
+Se utilizó el script `generar_json.py` para normalizar la información en un único archivo llamado **`mundial_2026.json`**. Este archivo se estructuró bajo la clave `{ "docs": [...] }` para cumplir con los requisitos de importación masiva de CouchDB.
 
-*   **`json`**: Para generar el archivo final con formato de datos estructurados.
-*   **`csv`**: Para procesar los datos provenientes de la fuente de Sudamérica.
-*   **`pypdf` (PdfReader)**: Para realizar la extracción de texto de la fuente de Norteamérica y Asia.
-*   **`bs4` (BeautifulSoup)**: Para aplicar técnicas de web scraping sobre la fuente de Europa.
+#### Carga de Datos a la Base de Datos
+Se desarrolló el script **`cargar_couch.py`**, el cual utiliza el endpoint **`_bulk_docs`** para automatizar la subida de los registros unificados directamente a la base de datos `jugadores` mediante peticiones HTTP.
 
-Todo se unificó en un archivo llamado **`mundial_2026.json`**, el cual cuenta con la estructura requerida por **CouchDB**: `{ "docs": [ { ... }, { ... } ] }`, permitiendo así su importación masiva directa a la base de datos.
+> **Nota:** Esto se realizará después de haber creado la base de datos, lo cual se detalla en la actividad número 2.
+
+#### Librerías de Python Utilizadas:
+*   **`json`**: Para la manipulación y estructuración de los archivos de datos.
+*   **`csv`**: Para la lectura de la fuente de Sudamérica.
+*   **`pypdf` (PdfReader)**: Para la extracción de texto del archivo PDF.
+*   **`bs4` (BeautifulSoup)**: Para el parseo de la tabla HTML de Europa.
+*   **`requests`**: Para gestionar la comunicación con la API de CouchDB y realizar la carga masiva.
