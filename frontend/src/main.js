@@ -2,7 +2,7 @@ import './style.css';
 import DataTable from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 
-const BASE_URL = "http://localhost:5984/jugadores/_design/losjugadores/_view/";
+const BASE_URL = "http://localhost:5985/jugadores/_design/losjugadores/_view/";
 
 let tabla = null;
 
@@ -50,6 +50,7 @@ async function cargarDatos(vista = "por_club", filtro = "") {
     }
 
     tabla = new DataTable("#tabla-posts", {
+      destroy: true,
       data: datos,
       columns: [
         { data: "criterio", title: "Criterio" },

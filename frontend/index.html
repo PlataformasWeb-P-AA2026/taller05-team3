@@ -1,21 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vite-jquery-datatable</title>
+    <title>Taller 05 - UTPL</title>
   </head>
-  <body>
-    <select id="vista">
-      <option value="por_club">Por club</option>
-      <option value="por_partidos">Por partidos</option>
-      <option value="por_goles">Por goles</option>
-    </select>
+  <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
 
-    <input id="filtro" type="text" placeholder="Filtrar por criterio">
+    <header style="background-color: #003366; color: white; padding: 20px; text-align: center; border-bottom: 5px solid #ffcc00;">
+      <h1 style="margin: 0;">Integracion de Datos - Mundial 2026</h1>
+      <p style="margin: 5px 0 0 0;">Universidad Tecnica Particular de Loja - Computacion</p>
+    </header>
 
-    <table id="tabla-posts"></table>
+    <div style="padding: 20px;">
+      <select id="vista" style="padding: 5px; border: 1px solid #003366;">
+        <option value="por_club">Por club</option>
+        <option value="por_partidos">Por partidos</option>
+        <option value="por_goles">Por goles</option>
+      </select>
+
+      <input id="filtro" type="text" placeholder="Filtrar por criterio" style="padding: 5px; border: 1px solid #003366; margin-left: 10px;">
+
+      <table id="tabla-posts" class="display" style="width:100%; margin-top: 15px;"></table>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: #003366; background-color: #f9f9f9; border-top: 1px solid #003366; margin-top: 50px;">
+      <p>© 2026 - Realizado por: Luis Alonso Sarango Romero y Cody Nathaniel Cabrera Abad</p>
+    </footer>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
